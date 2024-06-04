@@ -16,4 +16,7 @@ def canUnlockAll(boxes):
         for box in range(len(boxes)):
             if key in boxes[box] and box != key:
                 flag = True
-    return flag
+                break
+        if not flag:
+            return False
+    return True
