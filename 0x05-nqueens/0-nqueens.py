@@ -36,6 +36,7 @@ def nqueens(n, y, board):
 
 
 def main():
+    """ Main Method"""
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
