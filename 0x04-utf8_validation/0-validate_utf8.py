@@ -1,32 +1,30 @@
-#!/usr/bin/env python3
-"""_summary_"""
+#!/usr/bin/python3
+"""A Simple function to check UTF8 chars"""
 
 
 def validUTF8(data):
-    """_summary_
-
-    Args:
-        data (_type_): _description_
-
-    Returns:
-        _type_: _description_
     """
-    number_of_bytes = 0
-    mask1 = 1 << 7  # 10000000
-    mask2 = 1 << 6  # 01000000
+    Function: validUTF8
+    Description: Validates whether the integers in a list
+    represent valid UTF-8 characters.
+    Args: data: list of ints
+    Return:True if valid UTF8 chars or False if not
+    """
+
+    if len(data) == 0:
+        return True
+    if len(data) == 1:
+        if data[0] >= 32 and data[0] <= 126:
+            return True
+        else:
+            return False
 
     for num in data:
-        mask = 1 << 7
-        if number_of_bytes == 0:
-            while mask & num:
-                number_of_bytes += 1
-                mask = mask >> 1
-            if number_of_bytes == 0:
-                continue
-            if number_of_bytes == 1 or number_of_bytes > 4:
-                return False
+        if num > 31 and num < 127:
+            continue
+        elif num == 0:
+            continue
         else:
-            if not (num & mask1 and not (num & mask2)):
-                return False
-        number_of_bytes -= 1
-    return number_of_bytes == 0
+            return False
+
+    return True
