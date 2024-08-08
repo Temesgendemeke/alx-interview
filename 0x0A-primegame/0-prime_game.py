@@ -1,5 +1,11 @@
+#!/usr/bin/python3
+""" Prime Game"""
+
+
 def isWinner(x, nums):
+    """ Prime Game"""
     def sieve(n):
+        """ Prime Game"""
         is_prime = [True] * (n + 1)
         p = 2
         while (p * p <= n):
